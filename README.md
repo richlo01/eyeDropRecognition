@@ -1,4 +1,6 @@
 # Glaucoma Eye Drop Recognition
+Note: built with a team [Eric Chou, Ludovico Verniani]
+
 Glaucoma is the leading cause of blindness in the United States with more than 4 million people
 affected. There are several types of glaucoma including closed angle, open angle,
 pseudoexfoliation, etc. ranging from acute to chronic. In short, there lacks a single true solution
@@ -22,5 +24,22 @@ of bottled medicine, not vials, blister packs, sachets, etc. The data are all la
 medicine the bottle contains. There are five different eye drop medications and therefore five
 different categories. They are as follows:
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/47437080/121444460-6981b780-c944-11eb-8af0-31427fd699f5.png" width="500">
+  <img src="https://user-images.githubusercontent.com/47437080/125173615-0f5b5880-e175-11eb-8519-485eb0bf492c.png" width="600">
 </p>
+
+We decided to build on MobileNetV2 as our base model. Becuase we wanted it to be efficient on a mobile app, its speed and accuracy was the right fit for us.
+We used TensorFlow as our main machine learning framework. More specifically,
+we used the higher level library that runs on top of it, Keras. We wanted a framework that
+would allow us to build, train, and evaluate rather quickly. Keras also provided various neural
+net architectures that we thought were useful in our situation such as MobileNetV2. Finally, we added layers of Global Average Pooling, Dropout, and Dense. These provided some
+ways to combat overfitting. We used average pooling instead of max pooling so that the model
+looked at images that were smoother and would return features that were more representative
+of the image rather than selecting pixels based on pixel brightness. Note: Our code also does some
+preprocessing on the images to expand the variability.
+
+Our results are as follows:
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/47437080/125173831-2d758880-e176-11eb-8b8c-2229f034092f.png" width="650">
+</p>
+Note: results include our final model and models we built previously.
+
